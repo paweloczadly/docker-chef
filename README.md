@@ -9,3 +9,7 @@
 3. Execute chef-solo:
 
 		docker run --name jenkins -v $PWD/chef-solo:/tmp/chef-solo --volumes-from chefdk --volumes-from cookbooks debian:wheezy /opt/chefdk/bin/chef-solo -o jenkins::master -c /tmp/chef-solo/solo.rb
+
+4. Commit jenkins container (the id will be different):
+
+		docker commit 5f11f412f6a3 jenkins
