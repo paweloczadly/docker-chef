@@ -1,0 +1,32 @@
+berks:
+  build: .
+  entrypoint: berks
+  volumes:
+    - $PWD/src:/src
+foodcritic:
+  build: .
+  entrypoint: foodcritic
+  volumes:
+    - $PWD/src:/src
+rubocop:
+  build: .
+  entrypoint: rubocop
+  volumes:
+    - $PWD/src:/src
+kitchen:
+  build: .
+  entrypoint: kitchen
+  volumes:
+    - /usr/local/bin/docker:/usr/local/bin/docker # $(which docker)
+    - /var/run/docker.sock:/var/run/docker.sock
+    - $PWD/src:/src
+chefsolo:
+  build: .
+  entrypoint: chef-solo
+  volumes:
+    - $PWD/src:/src
+chefclient:
+  build: .
+  entrypoint: chef-client
+  volumes:
+    - $PWD/src:/etc/chef
